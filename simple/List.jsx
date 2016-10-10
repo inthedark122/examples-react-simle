@@ -2,8 +2,10 @@ import React, { Component, PropTypes as pt } from 'react';
 import connect from './connect';
 
 const
-    wrapper = connect();
-
+    mapStoreToProps = () => ({
+        age: 21
+    }),
+    wrapper = connect(mapStoreToProps);
 
 class List extends Component {
     render() {

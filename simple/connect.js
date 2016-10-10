@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 const
-  connect = () => WrappedComponent => {
-    class Connect extends Component {
+    connect = (mapStoreToProps) => WrappedComponent => {
+        class Connect extends Component {
 
-      render() {
-        return <WrappedComponent
-            {...this.props}
-        />
-      }
-    }
+            render() {
+                const
+                    newProps = mapStoreToProps();
 
-    return Connect;
-  };
+                return <WrappedComponent
+                    {...this.props}
+                    {...newProps}
+                />
+            }
+        }
+
+        return Connect;
+    };
 
 export default connect;
