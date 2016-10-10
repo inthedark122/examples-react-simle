@@ -19,3 +19,5 @@ const store = (reducer) => {
   
   return { getState, subscribe, dispatch };
 };
+
+export default store;

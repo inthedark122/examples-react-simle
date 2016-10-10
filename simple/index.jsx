@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import createStore from './store';
+import reducers from './reducer';
 import Provider from './Provider.jsx';
 import Table from './Table.jsx';
 
+const store = createStore(reducers);
+window.store = store;
+console.log('App store:', store);
+
 class App extends Component {
     render() {
-        return <Provider>
+        return <Provider store={store}>
             <Table />
         </Provider>;
     }

@@ -6,7 +6,10 @@ const
 
             render() {
                 const
-                    newProps = mapStoreToProps();
+                    { store } = this.props,
+                    newProps = mapStoreToProps(store);
+
+                console.log('Store:', store);
 
                 return <WrappedComponent
                     {...this.props}
