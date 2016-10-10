@@ -1,11 +1,12 @@
 import React, { Component, PropTypes as pt } from 'react';
 
 const
-    connect = (mapStoreToProps) => WrappedComponent => {
+    connect = (mapStoreToProps = () => {}) => WrappedComponent => {
         class Connect extends Component {
             static contextTypes = {
                 store: pt.shape({
-                    getState: pt.func.isRequired
+                    getState: pt.func.isRequired,
+                    dispatch: pt.func.isRequired
                 }).isRequired
             };
 
@@ -19,6 +20,7 @@ const
                 return <WrappedComponent
                     {...this.props}
                     {...this.state.newProps}
+                    dispatch={this.context.store.dispatch}
                 />
             }
         }
