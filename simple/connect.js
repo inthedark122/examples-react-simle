@@ -14,6 +14,14 @@ const
                 newProps: mapStoreToProps(this.context.store.getState())
             };
 
+            componentDidMount() {
+                this.context.store.subscribe(() => {
+                    this.setState({
+                        newProps: mapStoreToProps(this.context.store.getState())
+                    })
+                })
+            }
+
             render() {
                 console.log('Store:', this.context.store.getState());
 
