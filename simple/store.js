@@ -1,7 +1,7 @@
 const store = (reducer) => {
   
-  let state;
-  let listeners;
+  let state = {};
+  let listeners = [];
   
   const getState = () => state;
   

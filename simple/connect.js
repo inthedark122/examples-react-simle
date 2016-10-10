@@ -1,19 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes as pt } from 'react';
 
 const
     connect = (mapStoreToProps) => WrappedComponent => {
         class Connect extends Component {
+            static contextTypes = {
+                store: pt.shape({
+                    getState: pt.func.isRequired
+                }).isRequired
+            };
+
+            state = {
+                newProps: mapStoreToProps(this.context.store.getState())
+            };
 
             render() {
-                const
-                    { store } = this.props,
-                    newProps = mapStoreToProps(store);
-
-                console.log('Store:', store);
+                console.log('Store:', this.context.store.getState());
 
                 return <WrappedComponent
                     {...this.props}
-                    {...newProps}
+                    {...this.state.newProps}
                 />
             }
         }

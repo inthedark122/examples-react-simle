@@ -2,8 +2,8 @@ import React, { Component, PropTypes as pt } from 'react';
 import connect from './connect';
 
 const
-    mapStoreToProps = () => ({
-        age: 21
+    mapStoreToProps = (store) => ({
+        age: store.age
     }),
     wrapper = connect(mapStoreToProps);
 
