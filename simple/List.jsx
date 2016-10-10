@@ -1,4 +1,9 @@
 import React, { Component, PropTypes as pt } from 'react';
+import connect from './connect';
+
+const
+    wrapper = connect();
+
 
 class List extends Component {
     render() {
@@ -18,4 +23,5 @@ List.propTypes = {
     age: pt.number
 };
 
-export default List;
+console.log(wrapper);
+export default wrapper(List);
