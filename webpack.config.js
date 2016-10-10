@@ -6,7 +6,7 @@ const
 
 
 module.exports = {
-  entry: './simple/index.js',
+  entry: './simple/index.jsx',
   output: {
     path: './simple',
     filename: './build/bundle.js',
@@ -16,14 +16,12 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?/,
-        loaders: [
-          'babel',
-        ],
-        include: './simple/index.js',
+        loader: 'babel',
         query: {
           presets: [
             'es2015',
-            'react'
+            'react',
+            'stage-2'
           ]
         }
       },
