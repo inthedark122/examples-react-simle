@@ -1,5 +1,5 @@
 import React, { Component, PropTypes as pt } from 'react';
-import connect from './connect';
+import { connect } from 'react-redux';
 
 const
     mapStoreToProps = (store) => ({

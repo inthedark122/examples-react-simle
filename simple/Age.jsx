@@ -1,12 +1,12 @@
 import React, { Component, PropTypes as pt } from 'react';
-import connect from './connect';
+import { connect } from 'react-redux';
+import { setAge } from './actions';
+import { bindActionCreators } from 'redux';
+
 
 class Age extends Component {
     handleBlur = () => {
-        this.props.dispatch({
-            type: 'AGE',
-            payload: parseInt(this.age.value, 10)
-        });
+        this.props.setAge(this.age.value);
     };
 
     render() {
@@ -17,4 +17,9 @@ class Age extends Component {
     }
 }
 
-export default connect()(Age);
+export default connect(
+    null,
+    (dispatch) => ({
+        setAge: bindActionCreators(setAge, dispatch)
+    })
+)(Age);
